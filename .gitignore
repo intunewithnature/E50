@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.python-version
+
+# Training artifacts (corpora, tokenizer binaries, checkpoints — large + reproducible from scripts)
+phase1_corpus/raw/*.txt
+phase1_corpus/clean/*.txt
+phase1_corpus/raw/*.html
+phase2_corpus/raw/*.txt
+phase2_corpus/clean/*.txt
+phase1_tokenizer/**/*.bin
+phase1_tokenizer/**/*.model
+phase2_tokenizer/**/*.bin
+phase2_tokenizer/**/*.model
+checkpoints/
+phase1_checkpoints/
+phase2_checkpoints/
+phase1_samples/
+phase2_samples/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Keep the manifest CSVs and SOURCES.md files in git — they're small + audit trail
+!**/manifest.csv
+!**/SOURCES.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
