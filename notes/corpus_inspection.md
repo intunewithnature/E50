@@ -126,3 +126,17 @@ in Step 5.
 - Cleaner is **config-driven**: same script with config flags will run
   on Phase 2's Lovecraft + CAS corpus later. Config controls which
   strip/normalize rules apply per-corpus.
+
+## Known cleaner caveats
+
+- **Residual per-play ToC noise on plays with double-blank act
+  separators.** Rule 6's cluster detector tolerates a single blank line
+  between in-cluster lines. Plays whose per-play ToC separates each
+  ACT/Scene-list block with **two** consecutive blank lines (All's Well
+  That Ends Well demonstrated; likely affects others) get only their
+  ACT I sub-cluster stripped — the ACT II/III/IV/V scene-list lines
+  remain in `corpus.txt`. This is scene-list filler (e.g., `Scene I.
+  Paris. A room in the King's palace.`), not Shakespeare body text, so
+  it does not corrupt training. Intentionally not fixed in v1; revisit
+  if the residual lines show up as a recognizable pattern in samples
+  from the trained model.
