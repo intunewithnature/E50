@@ -393,8 +393,16 @@ def rule_normalize_speaker_tags(text: str) -> tuple[str, int]:
 
 
 def rule_collapse_newlines(text: str) -> tuple[str, int]:
-    """Rule 15: collapse 3+ consecutive newlines to 2."""
-    out, n = re.subn(r"\n{3,}", "\n\n", text)
+    """Rule 15: collapse 3+ consecutive newlines to 2.
+
+    CRLF-tolerant: matches \\r?\\n line endings. Replacement matches the
+    file's predominant line-ending convention so this rule does not
+    normalize line endings as a side effect.
+    """
+    crlf_count = text.count("\r\n")
+    lf_count = text.count("\n") - crlf_count
+    eol = "\r\n" if crlf_count > lf_count else "\n"
+    out, n = re.subn(r"(?:\r?\n){3,}", eol * 2, text)
     return out, n
 
 
