@@ -1,0 +1,20 @@
+{
+  "vocab_size_target": 4096,
+  "vocab_size_actual": 4096,
+  "n_merges": 3837,
+  "alphabet_size": 256,
+  "avg_merge_length": 4.658,
+  "tokens_per_byte": 0.34003,
+  "total_tokens_corpus": 1878092,
+  "training_seconds": 2.05,
+  "library": "tokenizers",
+  "library_version": "0.23.1",
+  "special_tokens": [
+    "<|bos|>",
+    "<|eos|>",
+    "<|pad|>"
+  ],
+  "corpus_sha256": "41c6561caf92be23cd8156ec3521df88036a9610316d87f379c05b75158ed96c",
+  "corpus_path": "phase1_corpus/clean/corpus.txt",
+  "trained_utc": "2026-05-02T01:39:06Z"
+}
